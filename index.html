@@ -383,6 +383,104 @@
       vertical-align: middle;
     }
 
+    /* =========================
+       Awards
+       ========================= */
+
+    .award-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      margin-left: 250px;
+    }
+
+    .award-card {
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .award-image-link {
+      display: block;
+      text-decoration: none;
+    }
+
+    .award-image-wrapper {
+      height: 270px;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #efefeb;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .award-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.25s ease;
+    }
+
+    .award-card:hover .award-image {
+      transform: scale(1.025);
+    }
+
+    .award-content {
+      padding: 22px;
+    }
+
+    .award-year {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .award-title {
+      margin: 0;
+      font-size: 19px;
+      line-height: 1.4;
+    }
+
+    .award-organization {
+      margin: 7px 0 0;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .award-description {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .award-korean {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .award-link {
+      display: inline-block;
+      margin-top: 14px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .award-link:hover {
+      text-decoration: underline;
+    }
+
     footer {
       border-top: 1px solid var(--border);
     }
@@ -420,7 +518,8 @@
       }
 
       .card-grid,
-      .item-list {
+      .item-list,
+      .award-grid {
         margin-left: 0;
       }
     }
@@ -465,7 +564,8 @@
         gap: 12px;
       }
 
-      .card-grid {
+      .card-grid,
+      .award-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -499,6 +599,10 @@
 
       .quick-information {
         grid-template-columns: 1fr;
+      }
+
+      .award-image-wrapper {
+        height: 240px;
       }
 
       .footer-container {
@@ -586,7 +690,9 @@
               <p class="degree-detail">
                 September 2025 – February 2027 (Expected)<br>
                 <span class="early-graduation">
-                  Expected early graduation
+                  Expected to graduate early
+                </span>
+                through the B.S.–M.S. integrated program.
               </p>
             </div>
 
@@ -674,209 +780,208 @@
 
     <!-- Research -->
 
-<section id="research">
+    <section id="research">
 
-  <div class="section-heading">
+      <div class="section-heading">
 
-    <h2 class="section-label">
-      Research
-    </h2>
+        <h2 class="section-label">
+          Research
+        </h2>
 
-    <p class="section-intro">
-      I study how interpretable internal dynamics and physical insights
-      can improve the reliability of artificial intelligence.
-    </p>
+        <p class="section-intro">
+          I study how interpretable internal dynamics and physical insights
+          can improve the reliability of artificial intelligence.
+        </p>
 
-  </div>
-
-  <div class="card-grid">
-
-    <article class="card">
-
-      <div class="card-tag">
-        Trustworthy AI · State-Space Models
       </div>
 
-      <h3>
-        Physics-Inspired State-Space Modeling
-      </h3>
+      <div class="card-grid">
 
-      <p>
-        An ongoing study investigating whether interpretable internal
-        dynamics in state-space models can support more reliable confidence
-        estimation and robustness under distribution shifts and corruptions.
-      </p>
+        <article class="card">
 
-    </article>
+          <div class="card-tag">
+            Trustworthy AI · State-Space Models
+          </div>
 
-    <article class="card">
+          <h3>
+            Physics-Inspired State-Space Modeling
+          </h3>
 
-      <div class="card-tag">
-        Scientific Imaging · NLOS · Architecture
+          <p>
+            A study investigating whether interpretable internal dynamics
+            in state-space models can support more reliable confidence
+            estimation and robustness under distribution shifts and corruptions.
+          </p>
+
+        </article>
+
+        <article class="card">
+
+          <div class="card-tag">
+            Scientific Imaging · NLOS · Architecture
+          </div>
+
+          <h3>
+            TST-Mamba
+          </h3>
+
+          <p>
+            A temporal-spatial-temporal state-space denoiser designed as a
+            plug-and-play preprocessing module for non-line-of-sight transient
+            imaging and reconstruction. Its architecture views Mamba as a
+            skip-connection-free autoencoder, compressing temporal information
+            into a bottleneck representation and redistributing the resulting
+            global context through spatial modeling and temporal reinjection.
+          </p>
+
+        </article>
+
       </div>
 
-      <h3>
-        TST-Mamba
-      </h3>
+    </section>
 
-      <p>
-        A temporal-spatial-temporal state-space denoiser designed as a
-        plug-and-play preprocessing module for non-line-of-sight transient
-        imaging and reconstruction. Its architecture views Mamba as a
-        skip-connection-free autoencoder, compressing temporal information
-        into a bottleneck representation and redistributing the resulting
-        global context through spatial modeling and temporal reinjection.
-      </p>
+    <!-- Publications -->
 
-    </article>
+    <section id="publications">
 
-  </div>
+      <div class="section-heading">
 
-</section>
+        <h2 class="section-label">
+          Publications
+        </h2>
 
+        <p class="section-intro">
+          Selected publications and research submissions.
+        </p>
 
-<!-- Publications -->
+      </div>
 
-<section id="publications">
+      <div class="item-list">
 
-  <div class="section-heading">
+        <article class="item">
 
-    <h2 class="section-label">
-      Publications
-    </h2>
+          <h3 class="item-title">
+            Physics-Inspired State-Space Modeling for Trustworthy AI
 
-    <p class="section-intro">
-      Selected publications, manuscripts, and ongoing research.
-    </p>
+            <span class="status">
+              Conference Submission
+            </span>
+          </h3>
 
-  </div>
+          <p class="item-meta">
+            Trustworthy AI · Interpretable Model Dynamics · Robustness
+          </p>
 
-  <div class="item-list">
+          <p class="item-description">
+            A study investigating whether interpretable internal dynamics
+            in state-space models can support reliable confidence estimation
+            and robustness under distribution shifts and corruptions.
+          </p>
 
-    <article class="item">
+        </article>
 
-  <h3 class="item-title">
-    Physics-Inspired State-Space Modeling for Trustworthy AI
+        <article class="item">
 
-    <span class="status">
-      Conference Submission
-    </span>
-  </h3>
+          <h3 class="item-title">
+            TST-Mamba: Plug-and-Play Selective State-Space Denoising
+            for Non-Line-of-Sight Imaging
 
-  <p class="item-meta">
-    Trustworthy AI · Interpretable Model Dynamics · Robustness
-  </p>
+            <span class="status">
+              Journal Submission
+            </span>
+          </h3>
 
-  <p class="item-description">
-    A study investigating whether interpretable internal dynamics
-    in state-space models can support reliable confidence estimation
-    and robustness under distribution shifts and corruptions.
-  </p>
+          <p class="item-meta">
+            Submitted to Neurocomputing
+          </p>
 
-</article>
+          <p class="item-description">
+            A temporal-spatial-temporal state-space denoising framework for
+            noisy transient measurements. The architecture views Mamba as a
+            skip-connection-free autoencoder and serves as a plug-and-play
+            preprocessing module for multiple NLOS reconstruction pipelines.
+          </p>
 
-    <article class="item">
+        </article>
 
-      <h3 class="item-title">
-        TST-Mamba: Plug-and-Play Selective State-Space Denoising for Non-Line-of-Sight Imaging
+        <article class="item">
 
-        <span class="status">
-          Journal Submission
-        </span>
-      </h3>
+          <h3 class="item-title">
+            Driver Handover Readiness Estimation via Bio–Vehicle Signal Fusion
+            and Safety–Oriented Re-decision
 
-      <p class="item-meta">
-        Submitted to Neurocomputing
-      </p>
+            <span class="status">
+              Conference Paper
+            </span>
+          </h3>
 
-      <p class="item-description">
-        A temporal-spatial-temporal state-space denoising framework for
-        noisy transient measurements. The architecture views Mamba as a
-        skip-connection-free autoencoder and serves as a plug-and-play
-        preprocessing module for multiple NLOS reconstruction pipelines.
-      </p>
+          <p class="item-meta">
+            WooSuk Choi, <strong>NaHee Kim</strong>, and JiHyun Nam ·
+            Summer Annual Conference of IEIE, 2026
+          </p>
 
-    </article>
+          <p class="item-description">
+            A bio–vehicle signal fusion framework that combines physiological
+            state estimation with vehicle-state information to assess driver
+            readiness for control handover in autonomous driving. The study
+            further introduces a safety-oriented re-decision policy to reduce
+            unsafe handover decisions.
+          </p>
 
+          <p class="item-description">
+            Presented in the Best Paper Award Presentation Session (VBP),
+            Jeju, South Korea, June 2026.
+          </p>
 
-    <article class="item">
+        </article>
 
-  <h3 class="item-title">
-    Driver Handover Readiness Estimation via Bio–Vehicle Signal Fusion
-    and Safety–Oriented Re-decision
+        <article class="item">
 
-    <span class="status">
-      Conference Paper
-    </span>
-  </h3>
+          <h3 class="item-title">
+            Air Purifier Utilizing Tesla Compressor and Cyclone Dust Collector
 
-  <p class="item-meta">
-    WooSuk Choi, <strong>Nahee Kim</strong>, and JiHyun Nam ·
-    Summer Annual Conference of IEIE, 2026
-  </p>
+            <span class="status">
+              Published
+            </span>
+          </h3>
 
-  <p class="item-description">
-    A bio–vehicle signal fusion framework that combines physiological
-    state estimation with vehicle-state information to assess driver
-    readiness for control handover in autonomous driving. The study
-    further introduces a safety-oriented re-decision policy to reduce
-    unsafe handover decisions.
-  </p>
+          <p class="item-meta">
+            KCI-Indexed Journal Article ·
+            <em>Technology and Education</em> · 2024
+          </p>
 
-  <p class="item-description">
-    Presented in the Best Paper Award Presentation Session (VBP),
-    Jeju, South Korea, June 2026.
-  </p>
+          <p class="item-description">
+            Je-Yoon Ryu, Hyunu Kim, Hyun-Wook Chung,
+            <strong>Na-Hee Kim</strong>, Jae-Hyeon An, and Sun-Kon Lee.
+            <em>Technology and Education</em>, Vol. 12, No. 2,
+            pp. 63–72, 2024.
+          </p>
 
-</article>
+          <p class="item-description">
+            This study developed a filter-less air purifier by combining a
+            Tesla compressor with a cyclone dust collector. Airflow behavior
+            was examined through computational fluid dynamics analysis, and
+            particle-removal performance was evaluated experimentally.
+          </p>
 
-    <article class="item">
+          <div class="contact-links">
 
-  <h3 class="item-title">
-    Air Purifier Utilizing Tesla Compressor and Cyclone Dust Collector
+            <a
+              class="button"
+              href="https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003116922"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              KCI Record
+            </a>
 
-    <span class="status">
-      Published
-    </span>
-  </h3>
+          </div>
 
-  <p class="item-meta">
-    KCI-Indexed Journal Article · Technology and Education · 2024
-  </p>
+        </article>
 
-  <p class="item-description">
-    Je-Yoon Ryu, Hyunu Kim, Hyun-Wook Chung,
-    <strong>Na-Hee Kim</strong>, Jae-Hyeon An, and Sun-Kon Lee.
-    <em>Technology and Education</em>, Vol. 12, No. 2,
-    pp. 63–72, 2024.
-  </p>
+      </div>
 
-  <p class="item-description">
-    This study developed a filter-less air purifier by combining a
-    Tesla compressor with a cyclone dust collector. Airflow behavior
-    was examined through computational fluid dynamics analysis, and
-    particle-removal performance was evaluated experimentally.
-  </p>
-
-  <div class="contact-links">
-
-    <a
-      class="button"
-      href="https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003116922"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      KCI Record
-    </a>
-
-  </div>
-
-</article>
-    
-
-  </div>
-
-</section>
+    </section>
 
     <!-- Awards -->
 
@@ -889,28 +994,242 @@
         </h2>
 
         <p class="section-intro">
-          Selected academic and project-based achievements from my
-          undergraduate studies.
+          Awards recognizing engineering design, prototyping,
+          and socially oriented problem solving.
         </p>
 
       </div>
 
-      <div class="item-list">
+      <div class="award-grid">
 
-        <article class="item">
+        <!-- KSME Bronze Award -->
 
-          <h3 class="item-title">
-            Selected Undergraduate Awards
-          </h3>
+        <article class="award-card">
 
-          <p class="item-meta">
-            Official award titles and dates to be added
-          </p>
+          <a
+            class="award-image-link"
+            href="award-2023-ksme-bronze.jpg"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="award-image-wrapper">
+              <img
+                class="award-image"
+                src="award-2023-ksme-bronze.jpg"
+                alt="Bronze Award certificate from the 13th National Student Design Competition"
+                loading="lazy"
+              >
+            </div>
+          </a>
 
-          <p class="item-description">
-            This section will include awards related to academic research,
-            engineering projects, and undergraduate competitions.
-          </p>
+          <div class="award-content">
+
+            <p class="award-year">
+              October 2023
+            </p>
+
+            <h3 class="award-title">
+              Bronze Award, 13th National Student Design Competition
+            </h3>
+
+            <p class="award-organization">
+              The Korean Society of Mechanical Engineers
+            </p>
+
+            <p class="award-description">
+              Awarded for designing a cyclone dust collector using a
+              Tesla compressor under the competition theme of mechanical
+              technologies for future society.
+            </p>
+
+            <p class="award-korean">
+              제13회 전국학생설계경진대회 동상 ·
+              테슬라 압축기를 이용한 사이클론 집진기
+            </p>
+
+            <a
+              class="award-link"
+              href="award-2023-ksme-bronze.jpg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Certificate
+            </a>
+
+          </div>
+
+        </article>
+
+        <!-- Creative Design Excellence Award -->
+
+        <article class="award-card">
+
+          <a
+            class="award-image-link"
+            href="award-2023-creative-excellence.jpg"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="award-image-wrapper">
+              <img
+                class="award-image"
+                src="award-2023-creative-excellence.jpg"
+                alt="Excellence Award certificate from the 15th Creative Design Competition"
+                loading="lazy"
+              >
+            </div>
+          </a>
+
+          <div class="award-content">
+
+            <p class="award-year">
+              October 2023
+            </p>
+
+            <h3 class="award-title">
+              Excellence Award, 15th Creative Design Competition
+            </h3>
+
+            <p class="award-organization">
+              European Power Transmission Research Association
+              (유럽동력전달장치연구회)
+            </p>
+
+            <p class="award-description">
+              Recognized for an engineering design project presented at
+              the 15th Creative Design Competition for socially
+              underserved communities.
+            </p>
+
+            <p class="award-korean">
+              제15회 소외된 이웃과 함께하는 창의설계 경진대회 우수상
+            </p>
+
+            <a
+              class="award-link"
+              href="award-2023-creative-excellence.jpg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Certificate
+            </a>
+
+          </div>
+
+        </article>
+
+        <!-- 2020 Capstone Bronze Award -->
+
+        <article class="award-card">
+
+          <a
+            class="award-image-link"
+            href="award-2020-capstone-bronze.jpg"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="award-image-wrapper">
+              <img
+                class="award-image"
+                src="award-2020-capstone-bronze.jpg"
+                alt="Bronze Award certificate from the 2020 Capstone Design Competition"
+                loading="lazy"
+              >
+            </div>
+          </a>
+
+          <div class="award-content">
+
+            <p class="award-year">
+              September 2020
+            </p>
+
+            <h3 class="award-title">
+              Bronze Award, 2020 Capstone Design Competition
+            </h3>
+
+            <p class="award-organization">
+              Inha University
+            </p>
+
+            <p class="award-description">
+              Awarded for developing an automatic nozzle-changing
+              device for 3D printers as part of Team AUTOTECH.
+            </p>
+
+            <p class="award-korean">
+              2020 종합설계 경진대회 동상 ·
+              3D 프린터 노즐 자동 변경 장치
+            </p>
+
+            <a
+              class="award-link"
+              href="award-2020-capstone-bronze.jpg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Certificate
+            </a>
+
+          </div>
+
+        </article>
+
+        <!-- 2020 Grand Prize -->
+
+        <article class="award-card">
+
+          <a
+            class="award-image-link"
+            href="award-2020-grand-prize.jpg"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="award-image-wrapper">
+              <img
+                class="award-image"
+                src="award-2020-grand-prize.jpg"
+                alt="Grand Prize certificate from the 2020 Engineering Design Club Competition"
+                loading="lazy"
+              >
+            </div>
+          </a>
+
+          <div class="award-content">
+
+            <p class="award-year">
+              July 2020
+            </p>
+
+            <h3 class="award-title">
+              Grand Prize, 2020 Engineering Design Club Competition
+            </h3>
+
+            <p class="award-organization">
+              Inha Innovation Center for Engineering Education
+            </p>
+
+            <p class="award-description">
+              Received the Grand Prize for an automatic nozzle-changing
+              device for 3D printers, developed as an engineering design
+              project by Team AUTOTECH.
+            </p>
+
+            <p class="award-korean">
+              2020학년도 공학설계 동아리 경진대회 대상 ·
+              3D 프린터 노즐 자동 변경 장치
+            </p>
+
+            <a
+              class="award-link"
+              href="award-2020-grand-prize.jpg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Certificate
+            </a>
+
+          </div>
 
         </article>
 
