@@ -2,64 +2,606 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Personal research website of Nahee Kim, focusing on interpretable and trustworthy AI, state-space models, and physics-inspired machine learning."
+  >
 
   <title>Nahee Kim | Research</title>
 
   <style>
+    :root {
+      --background: #f7f7f4;
+      --surface: #ffffff;
+      --text: #1f1f1f;
+      --muted: #666666;
+      --border: #deded8;
+      --accent: #2f5d50;
+      --accent-light: #e8efec;
+      --max-width: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f7f7f7;
-      color: #222222;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Helvetica,
+        Arial,
+        sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(247, 247, 244, 0.95);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 18px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .nav-name {
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
     }
 
     main {
-      max-width: 850px;
+      max-width: var(--max-width);
       margin: 0 auto;
-      padding: 120px 30px;
+      padding: 0 28px 80px;
     }
 
-    .label {
+    .hero {
+      min-height: 78vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 100px 0 80px;
+    }
+
+    .eyebrow {
+      margin-bottom: 18px;
+      color: var(--accent);
       font-size: 14px;
-      font-weight: bold;
+      font-weight: 700;
       letter-spacing: 2px;
-      color: #666666;
+      text-transform: uppercase;
     }
 
     h1 {
-      margin: 18px 0;
-      font-size: 58px;
+      margin: 0;
+      max-width: 850px;
+      font-size: clamp(48px, 8vw, 82px);
+      line-height: 1.05;
+      letter-spacing: -3px;
     }
 
-    .position {
-      font-size: 22px;
-      margin-bottom: 30px;
+    .hero-position {
+      margin: 24px 0 0;
+      font-size: 23px;
+      font-weight: 500;
     }
 
-    .description {
-      max-width: 700px;
-      font-size: 19px;
-      line-height: 1.7;
-      color: #444444;
+    .hero-description {
+      max-width: 780px;
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 11px 17px;
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    section {
+      padding: 84px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 40px;
+      margin-bottom: 42px;
+    }
+
+    .section-label {
+      margin: 0;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .section-intro {
+      margin: 0;
+      max-width: 720px;
+      font-size: 27px;
+      line-height: 1.4;
+      letter-spacing: -0.5px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      padding: 27px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .card-tag {
+      margin-bottom: 12px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .card h3 {
+      margin: 0 0 13px;
+      font-size: 23px;
+      line-height: 1.3;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .item-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .item {
+      padding: 25px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .item:first-child {
+      padding-top: 0;
+    }
+
+    .item-title {
+      margin: 0 0 7px;
+      font-size: 21px;
+    }
+
+    .item-meta {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .item-description {
+      margin: 0;
+      max-width: 800px;
+      color: var(--muted);
+    }
+
+    .status {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 28px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 760px) {
+      .nav-container {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 90px 0 70px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .section-heading {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .section-intro {
+        font-size: 23px;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-container {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 
 <body>
-  <main>
-    <div class="label">PERSONAL RESEARCH WEBSITE</div>
 
-    <h1>Nahee Kim</h1>
+  <nav>
+    <div class="nav-container">
+      <a class="nav-name" href="#home">Nahee Kim</a>
 
-    <div class="position">
-      M.S. Candidate in Data Science
+      <div class="nav-links">
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#awards">Awards</a>
+        <a href="#experience">Experience</a>
+      </div>
     </div>
+  </nav>
 
-    <p class="description">
-      My research interests include interpretable and trustworthy artificial
-      intelligence, state-space models, and physics-inspired machine learning.
-    </p>
+  <main>
+
+    <header class="hero" id="home">
+      <div class="eyebrow">Personal Research Website</div>
+
+      <h1>Nahee Kim</h1>
+
+      <p class="hero-position">
+        M.S. Candidate in Data Science
+      </p>
+
+      <p class="hero-description">
+        I study interpretable and trustworthy artificial intelligence by
+        investigating the internal dynamics of neural networks and incorporating
+        physical insights into model design. My current interests include
+        state-space models, robustness, explainability, and scientific imaging.
+      </p>
+
+      <div class="hero-links">
+        <a
+          class="button primary"
+          href="#research"
+        >
+          View Research
+        </a>
+
+        <a
+          class="button"
+          href="https://github.com/I-nae"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+      </div>
+    </header>
+
+    <section id="research">
+      <div class="section-heading">
+        <h2 class="section-label">Research</h2>
+
+        <p class="section-intro">
+          My research connects model interpretation, physical intuition,
+          and reliable artificial intelligence.
+        </p>
+      </div>
+
+      <div class="card-grid">
+
+        <article class="card">
+          <div class="card-tag">Trustworthy AI</div>
+
+          <h3>RiemannMamba</h3>
+
+          <p>
+            A physics-inspired state-space model that investigates interpretable
+            internal signals and their relationship with confidence estimation
+            and robustness under corruption.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-tag">Scientific Imaging</div>
+
+          <h3>TST-Mamba</h3>
+
+          <p>
+            A temporal-spatial-temporal state-space denoiser for transient
+            non-line-of-sight imaging, designed as a plug-and-play preprocessing
+            module for multiple reconstruction pipelines.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-tag">Explainable AI</div>
+
+          <h3>Interpretable Internal Dynamics</h3>
+
+          <p>
+            Studying how internal representations and latent signals can be
+            interpreted and reused to improve reliability, explainability,
+            and generalization.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-tag">Physics-Inspired AI</div>
+
+          <h3>Physical Principles for Model Design</h3>
+
+          <p>
+            Exploring how concepts from physics and dynamical systems can provide
+            useful structures and interpretations for modern machine-learning
+            models.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="section-heading">
+        <h2 class="section-label">Publications</h2>
+
+        <p class="section-intro">
+          Selected journal papers, conference submissions, and ongoing work.
+        </p>
+      </div>
+
+      <div class="item-list">
+
+        <article class="item">
+          <h3 class="item-title">
+            RiemannMamba
+            <span class="status">Manuscript</span>
+          </h3>
+
+          <p class="item-meta">
+            State-space models · Trustworthy AI · Robustness
+          </p>
+
+          <p class="item-description">
+            Full publication information, author list, paper link, and code link
+            will be added after the final bibliographic details are organized.
+          </p>
+        </article>
+
+        <article class="item">
+          <h3 class="item-title">
+            TST-Mamba: A Plug-and-Play State-Space Denoiser for
+            Non-Line-of-Sight Transient Imaging
+            <span class="status">Manuscript</span>
+          </h3>
+
+          <p class="item-meta">
+            Non-line-of-sight imaging · Transient denoising · Mamba
+          </p>
+
+          <p class="item-description">
+            A state-space denoising framework that models temporal and spatial
+            dependencies in noisy transient measurements.
+          </p>
+        </article>
+
+        <article class="item">
+          <h3 class="item-title">
+            Undergraduate KCI Journal Paper
+          </h3>
+
+          <p class="item-meta">
+            Title, journal, authors, volume, pages, and publication year to be added
+          </p>
+
+          <p class="item-description">
+            This entry will be replaced with the official bibliographic
+            information of the KCI-indexed publication.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="awards">
+      <div class="section-heading">
+        <h2 class="section-label">Honors & Awards</h2>
+
+        <p class="section-intro">
+          Selected academic and project-based achievements.
+        </p>
+      </div>
+
+      <div class="item-list">
+
+        <article class="item">
+          <h3 class="item-title">
+            Undergraduate Award
+          </h3>
+
+          <p class="item-meta">
+            Award name · Organization · Year
+          </p>
+
+          <p class="item-description">
+            A brief description of the awarded project and personal contribution
+            will be added here.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-heading">
+        <h2 class="section-label">Experience</h2>
+
+        <p class="section-intro">
+          Research, engineering, teaching, and academic experience.
+        </p>
+      </div>
+
+      <div class="item-list">
+
+        <article class="item">
+          <h3 class="item-title">
+            Researcher, Korea Automotive Technology Institute
+          </h3>
+
+          <p class="item-meta">
+            Robotics safety evaluation · Reliability · Standardization
+          </p>
+
+          <p class="item-description">
+            Conducting research on performance, reliability, and collision-safety
+            evaluation methods for outdoor mobile robots.
+          </p>
+        </article>
+
+        <article class="item">
+          <h3 class="item-title">
+            M.S. Candidate in Data Science, Inha University
+          </h3>
+
+          <p class="item-meta">
+            State-space models · Scientific imaging · Trustworthy AI
+          </p>
+
+          <p class="item-description">
+            Conducting research on Mamba-based architectures, non-line-of-sight
+            imaging, and interpretable model dynamics.
+          </p>
+        </article>
+
+        <article class="item">
+          <h3 class="item-title">
+            Physics Teaching and Laboratory Experience
+          </h3>
+
+          <p class="item-meta">
+            Physics instructor · Physics laboratory teaching assistant
+          </p>
+
+          <p class="item-description">
+            Developed experience communicating physical principles and conducting
+            experimental instruction, which now informs physics-inspired
+            machine-learning research.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
   </main>
+
+  <footer>
+    <div class="footer-container">
+      <span>© 2026 Nahee Kim</span>
+
+      <span>
+        Built with GitHub Pages
+      </span>
+    </div>
+  </footer>
+
 </body>
 </html>
